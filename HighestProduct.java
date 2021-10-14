@@ -11,15 +11,20 @@ public class HighestProduct {
 	public static int getHighestProduct(int numberOfFactors, int[] list){
 		PriorityQueue<Integer> largest = new PriorityQueue<>();
 		for(int i = 0; i < list.length; i++) {
+			//For the start of the list there are no numbers in the largest queue
+			//so we want to fill it up until it has the same size as the numbers of factors we're looking for
 			if(largest.size() < numberOfFactors) {
 				largest.add(list[i]);
 			}else {
+				//Here if the number encountered is larger than the smallest number in the priorityqueue
+				//We will remove the smallest number from the queue and insert our new, larger number.
 				if(list[i] > largest.peek()) {
 					largest.poll();
 					largest.add(list[i]);
 				}
 			}
 		}
+		//Finds the product of the largest factors
 		int product = largest.poll();
 		while(!largest.isEmpty()) {
 			product = product * largest.poll();
