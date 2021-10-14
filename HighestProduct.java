@@ -7,7 +7,6 @@ public class HighestProduct {
 	// From math we know that finding the 3 largest integers in the list will also produce the highest product
 	// Therefore we can simply make an algorithm that finds the 3 largest integers in a given list.
 	
-	//I have chosen to use a priorityQueue for this as it produces quite readable code.
 	public static int getHighestProduct(int numberOfFactors, int[] list){
 		PriorityQueue<Integer> largest = new PriorityQueue<>();
 		for(int i = 0; i < list.length; i++) {
